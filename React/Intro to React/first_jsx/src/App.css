@@ -1,0 +1,13 @@
+.App {
+  margin: auto 24px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li::before {
+  content: "*";
+  margin-right: 8px;
+}

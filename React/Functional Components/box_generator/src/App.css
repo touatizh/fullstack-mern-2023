@@ -1,0 +1,51 @@
+.App {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+label {
+  font-size: larger;
+}
+
+form {
+  display: flex;
+  gap: 16px;
+}
+
+#color {
+  height: 24px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dcdcdc;
+}
+
+#dim {
+  height: 24px;
+  width: 84px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dcdcdc;
+}
+
+input:focus {
+  outline: none;
+  border-color: #b8b8b8;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+button {
+  width: 48px;
+  border: 1px solid #b8b8b8;
+  border-radius: 5px;
+  background-color: white;
+}

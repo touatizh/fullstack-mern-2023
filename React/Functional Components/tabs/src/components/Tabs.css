@@ -1,0 +1,36 @@
+.tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.tab {
+    height: 40px;
+    width: 100px;
+    border: 1px solid #e6e6e6;
+    background-color: white;
+    font-size: larger;
+}
+
+.tab:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: black;
+    color: white;
+}
+
+.content {
+    border: 1px solid black;
+    font-size: larger;
+    min-height: 20vh;
+    padding: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.content.show {
+    opacity: 1;
+  }

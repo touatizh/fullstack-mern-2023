@@ -1,0 +1,54 @@
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.app{
+  width: 950px;
+  background-color: #dddd;
+  display: inline-block;
+}
+
+.header {
+  height: 100px;
+  background-color: #6aa84f;
+  margin: 12px;
+  display: block;
+}
+
+.nav {
+  height: 60vh;
+  width: 200px;
+  background-color: #6fa8dc;
+  margin: 0 12px 12px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.main {
+  height: 75vh;
+  width: 700px;
+  background-color: #e06666;
+  margin-bottom: 12px;
+  margin-right: 12px;
+  float: right;
+}
+
+.sub {
+  height: 55vh;
+  width: 210px;
+  background-color: #ffd966;
+  float: left;
+  margin: 12px 0 12px 18px;
+}
+
+.ad {
+  height: 100px;
+  width: 666px;
+  background-color: #b4a7d6;
+  float: left;
+  margin-top: 12px;
+  margin-left: 18px;
+}

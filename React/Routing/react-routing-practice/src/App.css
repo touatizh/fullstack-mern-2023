@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+}
+
+.App div {
+  font-size: larger;
+  padding: 4px 12px;
+  margin-top: 24px;
+  border: 1px solid black;
+}

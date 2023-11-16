@@ -1,14 +1,20 @@
 import './App.css';
 import { useState } from "react";
-import ColorInput from './components/colorInputForm';
-import ColoredBoxes from './components/coloredBoxes';
+import BoxInputForm from './components/BoxInputForm';
+import ColoredBoxes from './components/ColoredBoxes';
 
 function App() {
   const [boxes, setBoxes] = useState([]);
   const [dimensions, setDimensions] = useState([]);
+
+  const addNewBox = (color, dim) => {
+    setBoxes((prev) => [...prev, color])
+    setDimensions((prev) => [...prev, dim])
+  }
+
   return (
     <div className="App">
-      <ColorInput boxes={ boxes } setBoxes={ setBoxes } setDims={ setDimensions }/>
+      <BoxInputForm addNewBox={ addNewBox }/>
       <ColoredBoxes boxes={ boxes } dims={ dimensions }/>
     </div>
   );

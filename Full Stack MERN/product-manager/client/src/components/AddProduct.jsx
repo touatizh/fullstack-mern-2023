@@ -7,6 +7,8 @@ const AddProduct = (props) => {
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
 
+    const {addNewProduct} = props
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -15,7 +17,7 @@ const AddProduct = (props) => {
             price,
             description
         })
-            .then(res => console.log(res.data))
+            .then(res => addNewProduct(res.data.newProduct))
             .catch(e => console.log(e))
         
         setTitle("")

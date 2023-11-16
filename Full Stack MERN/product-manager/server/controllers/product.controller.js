@@ -19,7 +19,7 @@ module.exports.addProduct = (req, res) => {
             else {
                 res.json({
                     message: "error",
-                    errorS: e,
+                    errors: e,
                 });
             }
         })
@@ -31,4 +31,14 @@ module.exports.showAll = (req, res) => {
             message: "success",
             products: products,
         }))
+        .catch(e => console.log(e))
+}
+
+module.exports.showOne = (req, res) => {
+    Product.findOne({_id: req.params.id})
+        .then (product => res.json({
+            message: "success",
+            product: product,
+        }))
+        .catch(e => console.log(e))
 }

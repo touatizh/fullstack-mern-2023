@@ -42,3 +42,18 @@ module.exports.showOne = (req, res) => {
         }))
         .catch(e => console.log(e))
 }
+
+module.exports.EditProduct = (req, res) => {
+    Product.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
+        .then(product => res.json({
+            message: "success",
+            product: product
+        }))
+        .catch(e => console.log(e))
+}
+
+module.exports.DeleteProduct = (req, res) => {
+    Product.deleteOne({_id: req.params.id})
+        .then(deleteConfirmation => res.json(deleteConfirmation))
+        .catch(e => console.log(e))
+}

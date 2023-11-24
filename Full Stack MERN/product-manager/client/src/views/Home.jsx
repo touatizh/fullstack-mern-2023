@@ -19,10 +19,15 @@ const Home = () => {
         setProducts((prev) => [...prev, newProduct])
     }
 
+    const deleteProduct = (indexToDelete) => {
+        const afterDelete = products.filter((_, index) => index !== indexToDelete)
+        setProducts(afterDelete)
+    }
+
     return (
         <>
             <AddProduct addNewProduct={ addProduct } />
-            <ListAllProducts allProducts={ products } />
+            <ListAllProducts allProducts={ products } onDelete={deleteProduct} />
         </>
     )
 }

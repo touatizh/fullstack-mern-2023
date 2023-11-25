@@ -1,8 +1,9 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './views/Home';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ProductDetails from './views/ProductDetails';
-import EditProduct from './components/EditProduct'
+import EditProduct from './components/EditProduct';
 
 function App() {
   return (

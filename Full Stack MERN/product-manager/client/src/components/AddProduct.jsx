@@ -1,5 +1,9 @@
 import React, {useState} from "react"
 import axios from "axios"
+import Col from "react-bootstrap/Col"
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card"
 
 const AddProduct = (props) => {
 
@@ -27,25 +31,30 @@ const AddProduct = (props) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Title</label>
-                    <input type="Text" value={ title } onChange={ e => setTitle(e.target.value) } />
-                </div>
-
-                <div className="form-group">
-                    <label>Price</label>
-                    <input type="number" value={ price } onChange={ e => setPrice(e.target.value) } />
-                </div>
-
-                <div className="form-group">
-                    <label>Description</label>
-                    <input type="Text" value={ description } onChange={ e => setDescription(e.target.value) } />
-                </div>
-                <div className="form-group submit">
-                    <input type="Submit" className="btn btn-add" defaultValue="Create"/>
-                </div>
-            </form>
+            <Col xs={4}>
+                <Card>
+                    <Card.Header className="p-3" 
+                    style={{backgroundColor: "#0a59cc", color: "white"}}>
+                        <h5>Add a new Product </h5>
+                    </Card.Header>
+                    <Card.Body>
+                        <Form onSubmit={ handleSubmit } className="d-flex flex-column align-items-center">
+                            <Form.Group className="col-8 mb-3" controlId="productTitle">
+                                <Form.Control type="text" placeholder="Title" value={ title } onChange={ e => setTitle(e.target.value) } />
+                            </Form.Group>
+                            <Form.Group className="col-8 mb-3" controlId="productPrice">
+                                <Form.Control type="number" placeholder="Price" value={ price } onChange={ e => setPrice(e.target.value) } />
+                            </Form.Group>
+                            <Form.Group className="col-8 mb-3" controlId="productTitle">
+                                <Form.Control as="textarea" rows={3} placeholder="Description" value={ description } onChange={ e => setDescription(e.target.value) } />
+                            </Form.Group>
+                            <Form.Group controlId="submitButton">
+                                <Button variant="primary" type="submit">Add</Button>
+                            </Form.Group>
+                        </Form>
+                    </Card.Body>
+                </Card>
+            </Col>
         </>
     )
 }

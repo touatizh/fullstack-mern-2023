@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom"
+import Col from "react-bootstrap/Col"
+import Stack from "react-bootstrap/Stack"
+import Button from "react-bootstrap/Button"
 
 const ProductDetails = () => {
 
@@ -26,13 +29,15 @@ const ProductDetails = () => {
         }
     }
     return (
-        <div>
-            <h5>{product.title}</h5>
-            <p>Price: ${product.price}</p>
+        <Col xs={6} className="d-flex flex-column mt-5">
+            <h5 className="d-flex justify-content-center mb-4">{product.title}</h5>
             <p>Description: {product.description}</p>
-            <button type="button" onClick={() => navigate(`/edit/${product._id}/`)}>Edit</button>
-            <button type="button" onClick={ handleDelete }>Delete</button>
-        </div>
+            <p>Price: ${product.price}</p>
+            <Stack direction="horizontal" gap={3} className="d-flex justify-content-center">
+                <Button variant="success" onClick={() => navigate(`/edit/${product._id}/`)}>Edit</Button>
+                <Button variant="danger" onClick={ handleDelete }>Delete</Button>
+            </Stack>
+        </Col>
     )
 }
 

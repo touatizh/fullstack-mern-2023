@@ -1,6 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
+import Col from "react-bootstrap/Col"
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
 
 const ListAllProducts = (props) => {
 
@@ -17,17 +20,21 @@ const ListAllProducts = (props) => {
     }
 
     return (
-        <div id="displayProducts">
-            <h1>All Products</h1>
-            {
-                allProducts.map((product, index) => (
-                    <div key={index}>
-                        <Link to={`${product._id}`}>{product.title}</Link>
-                        <button type="button" onClick={ () => handleDelete(product._id, index) }>Delete</button>
-                    </div>
-                ))
-            }
-        </div>
+        <Col xs={4} className="mt-4">
+            <h3 className="mb-3">List of All Products</h3>
+            <Card>
+                <Card.Body className="d-flex flex-column gap-3">
+                    {
+                        allProducts.map((product, index) => (
+                            <div key={index} className="d-flex align-items-center justify-content-between">
+                                <Link className="text-decoration-none" to={`${product._id}`}>{product.title}</Link>
+                                <Button variant="danger" className="btn-sm" onClick={ () => handleDelete(product._id, index) }>Delete</Button>
+                            </div>
+                        ))
+                    }
+                </Card.Body>
+            </Card>
+        </Col>
     )
 }
 

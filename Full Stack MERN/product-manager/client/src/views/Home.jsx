@@ -13,21 +13,19 @@ const Home = () => {
                 setProducts(res.data.products)
             })
             .catch(e => console.log(e))
-    })
+    }, [])
 
-    const addProduct = (newProduct) => {
-        setProducts((prev) => [...prev, newProduct])
-    }
+    const addToList = (newProduct) => setProducts((prev) => [...prev, newProduct])
 
-    const deleteProduct = (indexToDelete) => {
+    const removeFromList = (indexToDelete) => {
         const afterDelete = products.filter((_, index) => index !== indexToDelete)
         setProducts(afterDelete)
     }
 
     return (
         <>
-            <AddProduct addNewProduct={ addProduct } />
-            <ListAllProducts allProducts={ products } onDelete={deleteProduct} />
+            <AddProduct addToList={ addToList }/>
+            <ListAllProducts allProducts={ products } removeFromList={removeFromList} />
         </>
     )
 }

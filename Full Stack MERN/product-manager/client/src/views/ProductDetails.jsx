@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import Col from "react-bootstrap/Col"
 import Stack from "react-bootstrap/Stack"
 import Button from "react-bootstrap/Button"
+import DeleteButton from '../components/DeleteButton'
 
 const ProductDetails = () => {
 
@@ -19,15 +20,6 @@ const ProductDetails = () => {
             .catch(e => console.log(e))
     })
 
-    const handleDelete = () => {
-        const confirmDelete = window.confirm("Do you really want to delete this product?")
-
-        if (confirmDelete) {
-            axios.delete(`http://localhost:8000/api/products/delete/${id}`)
-                .then(() => navigate("/"))
-                .catch(e => console.log(e))
-        }
-    }
     return (
         <Col xs={6} className="d-flex flex-column mt-5">
             <h5 className="d-flex justify-content-center mb-4">{product.title}</h5>
@@ -35,7 +27,7 @@ const ProductDetails = () => {
             <p>Price: ${product.price}</p>
             <Stack direction="horizontal" gap={3} className="d-flex justify-content-center">
                 <Button variant="success" onClick={() => navigate(`/edit/${product._id}/`)}>Edit</Button>
-                <Button variant="danger" onClick={ handleDelete }>Delete</Button>
+                <DeleteButton prodId={id} />
             </Stack>
         </Col>
     )

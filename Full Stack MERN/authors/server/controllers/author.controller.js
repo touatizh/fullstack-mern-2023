@@ -6,7 +6,7 @@ module.exports.create = (req, res) => {
             status: "success",
             author: author
         }))
-        .catch(e => console.log(e))
+        .catch(e => res.status(400).json(e))
 }
 
 module.exports.getOne = (req, res) => {
@@ -15,7 +15,7 @@ module.exports.getOne = (req, res) => {
             status: "success",
             author: author
         }))
-        .catch(e => console.log(e))
+        .catch(e => res.status(400).json(e))
 }
 
 module.exports.getAll = (req, res) => {
@@ -24,16 +24,16 @@ module.exports.getAll = (req, res) => {
             status: "suceess",
             authors: authors
         }))
-        .catch(e => console.log(e))
+        .catch(e => res.status(400).json(e))
 }
 
 module.exports.update = (req, res) => {
-    Author.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
+    Author.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, runValidators: true})
         .then(author => res.json({
             status: "success",
             author: author
         }))
-        .catch(e => console.log(e))
+        .catch(e => res.status(400).json(e))
 }
 
 module.exports.delete = (req, res) => {
@@ -42,5 +42,5 @@ module.exports.delete = (req, res) => {
             status: "success",
             result: result
         }))
-        .catch(e => console.log(e))
+        .catch(e => res.status(400).json(e))
 }

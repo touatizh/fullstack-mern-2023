@@ -7,10 +7,12 @@ class User {
 
     makeDeposit(amount) {
         this.balance += amount
+        return this
     }
 
     makeWithdrawl(amount) {
         this.balance -= amount
+        return this
     }
 
     displayBalance() {
@@ -20,6 +22,7 @@ class User {
     transferMoney(receiver, amount) {
         this.balance -= amount
         receiver.balance += amount
+        return this
     }
 }
 
@@ -29,27 +32,14 @@ ian = new User("Ian Rodriguez", "lo@comeovo.as")
 bruce = new User("Bruce Myers", "ladcesev@huaki.bg")
 
 // First user: 3 deposits 1 withdrawl
-nick.makeDeposit(300)
-nick.makeDeposit(500)
-nick.makeDeposit(660)
-nick.makeWithdrawl(800)
-nick.displayBalance()
+nick.makeDeposit(300).makeDeposit(500).makeDeposit(660).makeWithdrawl(800).displayBalance()
 
 // Second user: 2 deposits 2 withdrawls
-ian.makeDeposit(680)
-ian.makeDeposit(360)
-ian.makeWithdrawl(270)
-ian.makeWithdrawl(65)
-ian.displayBalance()
+ian.makeDeposit(680).makeDeposit(360).makeWithdrawl(270).makeWithdrawl(65).displayBalance()
 
 // Third user: 1 deposit 3 withdrawls
-bruce.makeWithdrawl(130)
-bruce.makeWithdrawl(530)
-bruce.makeWithdrawl(45)
-bruce.makeDeposit(500)
-bruce.displayBalance()
+bruce.makeWithdrawl(130).makeWithdrawl(530).makeWithdrawl(45).makeDeposit(500).displayBalance()
 
 // Money transfer from first user to the third user
-nick.transferMoney(bruce, 300)
-nick.displayBalance()
+nick.transferMoney(bruce, 300).displayBalance()
 bruce.displayBalance()

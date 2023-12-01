@@ -1,35 +1,38 @@
+const BankAccount = require("../bank-account/BankAccount")
+
 class User {
     constructor(username, email) {
         this.name = username
         this.email = email
-        this.balance = 0
+        this.account = new BankAccount(5)
     }
 
     makeDeposit(amount) {
-        this.balance += amount
+        this.account.deposit(amount)
         return this
     }
 
     makeWithdrawl(amount) {
-        this.balance -= amount
+        this.account.withdrawl(amount)
         return this
     }
 
     displayBalance() {
-        console.log(`User: ${this.name}, Balance: $${this.balance}`)
+        console.log(`User: ${this.name},`)
+        this.account.displayAccountInfo()
     }
 
     transferMoney(receiver, amount) {
-        this.balance -= amount
-        receiver.balance += amount
+        this.account.withdrawl(amount)
+        receiver.account.deposit(amount)
         return this
     }
 }
 
 // Creating 3 instances of User class
-nick = new User("Nicholas Tran", "lu@zi.eg")
-ian = new User("Ian Rodriguez", "lo@comeovo.as")
-bruce = new User("Bruce Myers", "ladcesev@huaki.bg")
+const nick = new User("Nicholas Tran", "lu@zi.eg")
+const ian = new User("Ian Rodriguez", "lo@comeovo.as")
+const bruce = new User("Bruce Myers", "ladcesev@huaki.bg")
 
 // First user: 3 deposits 1 withdrawl
 nick.makeDeposit(300).makeDeposit(500).makeDeposit(660).makeWithdrawl(800).displayBalance()

@@ -1,8 +1,8 @@
 class BankAccount {
 
     constructor(intRate, balance) {
-        this.balance = 0
-        this.intRate = 10
+        this.balance = balance || 0
+        this.intRate = intRate || 1
     }
 
     deposit(amount) {
@@ -16,7 +16,7 @@ class BankAccount {
     }
 
     displayAccountInfo() {
-        console.log(`Interest Rate: ${this.intRate}, Account Balance: $${this.balance}`)
+        console.log(`Interest Rate: ${this.intRate}%, Account Balance: $${this.balance}`)
     }
 
     yieldInterest() {
@@ -26,12 +26,16 @@ class BankAccount {
     }
 }
 
-// Creating two new accounts
-account1 = new BankAccount()
-account2 = new BankAccount()
+if (require.main === module) {
+    // Creating two new accounts
+    const account1 = new BankAccount()
+    const account2 = new BankAccount()
 
-// First account: 3 deposits 1 withdrawl
-account1.deposit(300).deposit(500).deposit(660).withdrawl(800).yieldInterest().displayAccountInfo()
+    // First account: 3 deposits 1 withdrawl
+    account1.deposit(300).deposit(500).deposit(660).withdrawl(800).yieldInterest().displayAccountInfo()
 
-// First account: 2 deposits 4 withdrawl
-account1.deposit(300).deposit(500).withdrawl(660).withdrawl(800).withdrawl(200).withdrawl(88).yieldInterest().displayAccountInfo()
+    // First account: 2 deposits 4 withdrawl
+    account1.deposit(300).deposit(500).withdrawl(660).withdrawl(800).withdrawl(200).withdrawl(88).yieldInterest().displayAccountInfo()
+}
+
+module.exports = BankAccount

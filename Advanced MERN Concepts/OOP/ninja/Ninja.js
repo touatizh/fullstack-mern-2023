@@ -57,13 +57,17 @@ class Ninja {
     }
 
     /**
-     * Adds +10 health to the ninja, up to a maximum of 100.
+     * Adds +10 health to the ninja, up to a maximum of 100. 
+     * If the resulting health exceeds the maximum allowed (defaulted to 100), it is capped at the maximum value.
      * @method
+     * @param {number} [maxHealth=100] - The maximum health limit. Defaults to 100.
      * @returns {Ninja} The current Ninja instance for method chaining.
      */
-    drinkSake() {
-        const healthIncrease = 10
-        this.health = (this.health + healthIncrease) >= 100 ? 100 : this.health + healthIncrease;
+    drinkSake(maxHealth = 100) {
+        const healthIncrease = 10;
+        this.health = (this.health + healthIncrease) >= maxHealth ? maxHealth : this.health + healthIncrease;
         return this;
     }
 }
+
+module.exports = Ninja
